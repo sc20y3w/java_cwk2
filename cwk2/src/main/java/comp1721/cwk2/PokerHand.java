@@ -64,14 +64,22 @@ public class PokerHand extends CardCollection{
     //Converts hand cards to strings
     public String toString(){
         String h = "";
-        Object[] arr = hand1.toArray();
-        for (int i = 0; i<hand1.size();i++){
-            h = h +arr[i];
-            if(i<(hand1.size()-1)){
+        String sub1;
+        Object[] arr = hand.toArray();
+        String[] str = new String[hand.size()];
+        for (int i = 0; i<hand.size();i++){
+            sub1 = (String) arr[i];
+            Card c = new Card(sub1);
+            str[i] = c.toString();
+        }
+        for (int i = 0; i<hand.size();i++){
+            h = h + str[i];
+            if(i<(hand.size()-1)){
                 h = h+" ";
             }
         }
         return h;
+
     }
 
     //Returns the number of cards in a hand
